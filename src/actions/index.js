@@ -10,7 +10,7 @@ export const FETCH_MESSAGES = 'fetch_messages';
 
 
 export function fetchPosts() {
-  const request = axios.get(`http://localhost:8000/posts`);
+  const request = axios.get(`http://cast-iron-meals-dev.us-east-2.elasticbeanstalk.com/posts`);
   return {
     type: FETCH_POSTS,
     payload: request
@@ -18,7 +18,7 @@ export function fetchPosts() {
 }
 
 export function fetchMessages() {
-  const request = axios.get(`http://localhost:8000/requests`,{headers:{token:localStorage.getItem('token')}});
+  const request = axios.get(`http://cast-iron-meals-dev.us-east-2.elasticbeanstalk.com/requests`,{headers:{token:localStorage.getItem('token')}});
   return {
     type: FETCH_MESSAGES,
     payload: request
@@ -26,7 +26,7 @@ export function fetchMessages() {
 }
 
 export function createPost(values, callback) {
-  const request = axios.post(`http://localhost:8000/posts`, values, {headers:{token:localStorage.getItem('token')}}).then(()=> callback());
+  const request = axios.post(`http://cast-iron-meals-dev.us-east-2.elasticbeanstalk.com/posts`, values, {headers:{token:localStorage.getItem('token')}}).then(()=> callback());
   return {
     type: CREATE_POST,
     payload: request
@@ -35,7 +35,7 @@ export function createPost(values, callback) {
 
 
 export function fetchPost(id) {
-  const request = axios.get(`http://localhost:8000/posts/${id}`);
+  const request = axios.get(`http://cast-iron-meals-dev.us-east-2.elasticbeanstalk.com/posts/${id}`);
   return {
     type: FETCH_POST,
     payload: request
@@ -43,7 +43,7 @@ export function fetchPost(id) {
 }
 
 export function updatePost(id, updatedPost) {
-  const request = axios.post(`http://localhost:8000/posts/${id}`, updatedPost, {headers:{token:localStorage.getItem('token')}});
+  const request = axios.post(`http://cast-iron-meals-dev.us-east-2.elasticbeanstalk.com/posts/${id}`, updatedPost, {headers:{token:localStorage.getItem('token')}});
   return {
     type: UPDATE_POST,
     payload: request
@@ -51,7 +51,7 @@ export function updatePost(id, updatedPost) {
 }
 
 export function deletePost(id, callback) {
-  const request = axios.delete(`http://localhost:8000/posts/${id}`,{headers:{token:localStorage.getItem('token')}}).then(()=> callback());
+  const request = axios.delete(`http://cast-iron-meals-dev.us-east-2.elasticbeanstalk.com/posts/${id}`,{headers:{token:localStorage.getItem('token')}}).then(()=> callback());
   return {
     type: DELETE_POST,
     payload: request
@@ -62,7 +62,7 @@ export function deletePost(id, callback) {
 export const signin = (formProps, callback) => async dispatch => {
   try {
     const response = await axios.post(
-      'http://localhost:8000/login',
+      'http://cast-iron-meals-dev.us-east-2.elasticbeanstalk.com/login',
       formProps
     );
 
